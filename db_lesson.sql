@@ -65,7 +65,7 @@ Q7
 mysql> SELECT name FROM people WHERE (age BETWEEN 20 AND 29 AND gender = 2) OR (age BETWEEN 40 AND 49 AND gender = 1);
 
 Q8
-mysql> SELECT age FROM people WHERE department_id = 1 ORDER BY age ASC;
+mysql> SELECT * FROM people WHERE department_id = 1 ORDER BY age ASC;
 
 Q9
 mysql> SELECT AVG(age) AS average_age FROM people WHERE department_id = 2 GROUP BY gender = 2;
@@ -74,4 +74,4 @@ Q10
 mysql> SELECT p.name, d.department_id, r.report_id, content FROM people p JOIN departments d ON (p.department_id = d.department_id) JOIN reports r ON (p.person_id = r.person_id);
 
 Q11
-mysql> SELECT p.person_id, p.name, r.content FROM people p LEFT OUTER JOIN reports r ON (p.person_id = r.person_id) WHERE name NOT IN ('鈴木たかし', '田中ゆうこ', '福田だいすけ', '豊島はなこ', '不思議沢みちこ', '竹内', '佐藤', '高橋', '伊藤', '渡辺');
+mysql> SELECT p.person_id, p.name, r.content FROM people p LEFT OUTER JOIN reports r ON (p.person_id = r.person_id) WHERE content IS NULL;
